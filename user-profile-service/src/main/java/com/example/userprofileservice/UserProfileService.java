@@ -1,4 +1,7 @@
 package com.example.userprofileservice;
 
-public class UserProfileService {
+import reactor.core.publisher.Flux;
+
+public interface UserProfileService {
+    public Flux<UserProfile> getAllUserProfiles();
 }
