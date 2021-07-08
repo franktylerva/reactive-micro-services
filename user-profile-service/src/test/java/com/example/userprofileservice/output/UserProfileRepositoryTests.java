@@ -1,13 +1,12 @@
-package com.example.userprofileservice;
+package com.example.userprofileservice.output;
 
-import org.junit.jupiter.api.BeforeAll;
+import com.example.userprofileservice.domain.UserProfile;
+import com.example.userprofileservice.output.UserProfileRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import reactor.core.publisher.Hooks;
-import reactor.core.publisher.Mono;
-import reactor.test.StepVerifier;
 
 import java.time.LocalDate;
 

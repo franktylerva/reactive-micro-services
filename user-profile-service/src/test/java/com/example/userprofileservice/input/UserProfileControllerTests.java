@@ -1,5 +1,8 @@
-package com.example.userprofileservice;
+package com.example.userprofileservice.input;
 
+import com.example.userprofileservice.input.UserProfileController;
+import com.example.userprofileservice.domain.UserProfile;
+import com.example.userprofileservice.domain.UserProfileService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

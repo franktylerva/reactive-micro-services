@@ -1,4 +1,4 @@
-package com.example.userprofileservice;
+package com.example.userprofileservice.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
