@@ -9,7 +9,7 @@ import java.security.Principal;
 
 @RestController
 @Slf4j
-public class UserProfilController {
+public class UserProfileController {
 
     @GetMapping("/api/hello")
     public Mono<String> hello(Principal principal) {
