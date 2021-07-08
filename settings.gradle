@@ -1,0 +1,3 @@
+rootProject.name = 'api-gateway-example'
+include 'api-gateway'
+include 'user-profile-service'
