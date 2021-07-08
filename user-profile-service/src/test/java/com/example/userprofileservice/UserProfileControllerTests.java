@@ -9,9 +9,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.mockJwt;
 
 @WebFluxTest(controllers = {UserProfileController.class})
@@ -45,17 +48,6 @@ class UserProfileControllerTests {
 	}
 
 	@Test
-	void testHello() {
-
-		client.mutateWith(mockJwt())
-				.get().uri("/api/hello")
-				.accept(MediaType.TEXT_PLAIN)
-				.exchange()
-				.expectStatus().isOk()
-				.expectBody(String.class).isEqualTo("Hello World!");
-	}
-
-	@Test
 	void shouldReturnAllUserProfiles() {
 
 		Mockito.when(userProfileService.getAllUserProfiles() )
@@ -70,5 +62,26 @@ class UserProfileControllerTests {
 				.hasSize( userProfiles.count().block().intValue() );
 	}
 
+	@Test
+	void shouldCreateUserProfile() {
+
+		UserProfile p1 = new UserProfile();
+		p1.setId(1L);
+		p1.setUsername("p1");
+		p1.setEmail("p1@gmail.com");
+		p1.setBirthDate( LocalDate.of(1984,1,1));
+
+		Mockito.when(userProfileService.createUserProfile(any(UserProfile.class)))
+				.thenReturn(Mono.just(p1));
+
+		client.mutateWith(mockJwt())
+				.mutateWith(csrf())
+				.post().uri("/api/user-profiles")
+				.accept(MediaType.APPLICATION_JSON)
+				.bodyValue( p1 )
+				.exchange()
+				.expectStatus().isCreated()
+				.expectHeader().location("/api/user-profiles/1");
+	}
 
 }
