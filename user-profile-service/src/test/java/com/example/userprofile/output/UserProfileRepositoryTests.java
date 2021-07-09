@@ -1,7 +1,6 @@
-package com.example.userprofileservice.output;
+package com.example.userprofile.output;
 
-import com.example.userprofileservice.domain.UserProfile;
-import com.example.userprofileservice.output.UserProfileRepository;
+import com.example.userprofile.domain.UserProfile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

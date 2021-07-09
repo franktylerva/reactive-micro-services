@@ -1,7 +1,7 @@
-package com.example.userprofileservice.input;
+package com.example.userprofile.input;
 
-import com.example.userprofileservice.domain.UserProfileService;
-import com.example.userprofileservice.domain.UserProfile;
+import com.example.userprofile.domain.UserProfile;
+import com.example.userprofile.domain.UserProfileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -17,7 +17,7 @@ import java.net.URI;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class UserProfileController {
+class UserProfileController {
 
     final UserProfileService userProfileService;
 

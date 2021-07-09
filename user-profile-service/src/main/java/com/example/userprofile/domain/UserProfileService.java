@@ -1,6 +1,5 @@
-package com.example.userprofileservice.domain;
+package com.example.userprofile.domain;
 
-import com.example.userprofileservice.domain.UserProfile;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
